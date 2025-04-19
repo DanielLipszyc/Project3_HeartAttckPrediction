@@ -8,6 +8,7 @@
 using namespace std;
 
 #include "MergeSort.h"
+#include "RadixSort.h"
 
 
 void extractBMIsFromFile(vector<Patient*> &list) {
@@ -66,22 +67,48 @@ int main(){
     time_t start, end;
     time(&start);
 
-    //radixSort(Patients);
+    radixSort(Patients);
     //mergeSort(Patients, 0, Patients.size() - 1);
 
     time(&end);
 
-    int input_BMI;
-    cout << "Enter a number between 20 and 40: ";
-    cin >> input_BMI;
+    int input_BMI = 23; // Ivana please get input from GUI and put it here
 
+    //Percentage Calculation Section
 
-    for(Patient* p : Patients){
+    vector<Patient*> sameBMI_Patients = {};
 
-        cout << num << ". " << "BMI: " << p->BMI << " Outcome: " << p->HAO << endl;
-        num++;
-
+    for(int i = 0; i < Patients.size(); i++){
+        if(Patients[i]->BMI < input_BMI){
+            i++;
+        }
+        else if(Patients[i]->BMI == input_BMI){
+            sameBMI_Patients.push_back(Patients[i]);
+        }
+        else{
+            break;
+        }
     }
+
+    int total = sameBMI_Patients.size();
+    int positive = 0;
+    for(Patient* p : sameBMI_Patients){
+        if(p->HAO == 1){
+            positive++;
+        }
+    }
+
+    float average = (float)positive / total;
+    cout << "Average: " << average << endl;
+
+
+
+//    for(Patient* p : sameBMI_Patients){
+//
+//        cout << num << ". " << "BMI: " << p->BMI << " Outcome: " << p->HAO << endl;
+//        num++;
+//
+//    }
 
     cout << difftime(end, start) << endl;
 }
