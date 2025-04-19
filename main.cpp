@@ -59,6 +59,36 @@ void extractBMIsFromFile(vector<Patient*> &list) {
 
 
 int main(){
-    cout << 11;
-    return 0;
+    int num = 1;
+    string variable = "";
+    string sortMethod = "";
+
+//    cout << "Enter B for BMI, and S for stress level: ";
+//    cin>> variable;
+//    cout <<"Enter M for Merge Sort, and R for Radix Sort: ";
+//    cin>> sortMethod;
+
+    vector<Patient*> Patients = {};
+    extractBMIsFromFile(Patients);
+    time_t start, end;
+    time(&start);
+
+    //radixSort(Patients);
+    //mergeSort(Patients, 0, Patients.size() - 1);
+
+    time(&end);
+
+    int input_BMI;
+    cout << "Enter: ";
+    cin >> input_BMI;
+
+    for(Patient* p : Patients){
+        if(p->BMI == input_BMI){
+            cout << num << ". " << "BMI: " << p->BMI << " Outcome: " << p->HAO << endl;
+            num++;
+        }
+
+    }
+
+    cout << difftime(end, start) << endl;
 }
