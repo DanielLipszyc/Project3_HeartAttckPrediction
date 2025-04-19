@@ -8,17 +8,6 @@
 using namespace std;
 
 
-struct Patient{
-    float BMI;
-    float StressLevel;
-    int HAO; // Heart Attack Outcome
-
-    Patient(float BMI, int HAO){
-        this->BMI = BMI;
-        this->HAO = HAO;
-    }
-};
-
 
 void extractBMIsFromFile(vector<Patient> &list) {
     ifstream file("../heart_attack_dataset.csv");

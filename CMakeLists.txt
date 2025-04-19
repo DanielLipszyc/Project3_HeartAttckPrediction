@@ -4,4 +4,8 @@ project(Project3_HeartAttckPrediction)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Project3_HeartAttckPrediction
-        main.cpp)
+        main.cpp
+        PatientObject.cpp
+        PatientObject.h
+        MergeSort.cpp
+        MergeSort.h)
