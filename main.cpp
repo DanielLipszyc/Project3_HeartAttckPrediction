@@ -9,6 +9,7 @@ using namespace std;
 
 #include "MergeSort.h"
 
+
 void extractBMIsFromFile(vector<Patient*> &list) {
     ifstream file("../heart_attack_dataset.csv");
     if (!file.is_open()) {
@@ -66,7 +67,7 @@ int main(){
     time(&start);
 
     //radixSort(Patients);
-    mergeSort(Patients, 0, Patients.size() - 1);
+    //mergeSort(Patients, 0, Patients.size() - 1);
 
     time(&end);
 
