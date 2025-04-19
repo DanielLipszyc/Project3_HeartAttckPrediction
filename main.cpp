@@ -7,42 +7,39 @@
 #include <vector>
 using namespace std;
 
+#include "MergeSort.h"
 
-
-void extractBMIsFromFile(vector<Patient> &list) {
+void extractBMIsFromFile(vector<Patient*> &list) {
     ifstream file("../heart_attack_dataset.csv");
     if (!file.is_open()) {
         cerr << "Error: Could not open file 'ONE'." << endl;
         return;
     }
-
     string line;
-
-    // Skip the header line
-    getline(file, line);
-
-    // Process each data line
-    float max = 0.0;
-    float min = 20.0;
-    Patient R(0.0, 0);
+    getline(file, line); // skip header
     int count = 0;
     while (getline(file, line)) {
         size_t start = 0;
         size_t end = 0;
         int index = 0;
         float bmi = 0;
+        int stressLevel = 0;
         int outcome = 0;
-
         string token;
 
-        // Manually parse the line
         while (end != string::npos && index <= 31) {
             end = line.find(',', start);
             token = line.substr(start, end - start);
 
             if (index == 5) {
                 bmi = stof(token);
-            } else if (index == 31) {
+            }
+
+            else if(index == 13){
+                stressLevel = stoi(token);
+            }
+
+            else if (index == 31) {
                 outcome = (token == "Heart Attack") ? 1 : 0;
                 break;
             }
@@ -51,9 +48,8 @@ void extractBMIsFromFile(vector<Patient> &list) {
             ++index;
         }
 
-        R.BMI = bmi;
-        R.HAO = outcome;
-        list.push_back(R);
+        Patient* P = new Patient(bmi, outcome, stressLevel);
+        list.push_back(P);
 
         ++index;
         count++;

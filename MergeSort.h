@@ -1,6 +1,7 @@
 //
 // Created by Daniel Lipszyc on 4/19/25.
 //
+#include "PatientObject.h"
 
 #ifndef PROJECT3_HEARTATTCKPREDICTION_MERGESORT_H
 #define PROJECT3_HEARTATTCKPREDICTION_MERGESORT_H
