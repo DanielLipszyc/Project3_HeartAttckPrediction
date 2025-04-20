@@ -7,8 +7,6 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "MergeSort.h"
-#include "RadixSort.h"
-
 
 using namespace std;
 
@@ -61,31 +59,49 @@ void extractBMIsFromFile(vector<Patient*> &list) {
 }
 
 
-string RadixSort(int value, vector<Patient*> &Patients) {
+string RadixSort(int value) {
     //Add code for Radix Sort
-    radixSort(Patients);
+
     return "Value Radix";
     //Return string
 }
 
 
 
-string MergeSort(int value, vector<Patient*> &Patients) {
+string MergeSort(int value) {
     //Add code for Merge Sort
-    mergeSort(Patients, 0, Patients.size() - 1);
+    int num = 1;
+
+    vector<Patient*> Patients = {};
+    //extractBMIsFromFile(Patients);
+    time_t start, end;
+    time(&start);
+
+    //radixSort(Patients);
+    //mergeSort(Patients, 0, Patients.size() - 1);
+
+    time(&end);
+
+    int input_BMI;
+    cout << "Enter a number between 20 and 40: ";
+    //cin >> input_BMI;
+
+
+    for(Patient* p : Patients){
+
+        cout << num << ". " << "BMI: " << p->BMI << " Outcome: " << p->HAO << endl;
+        num++;
+
+    }
+
+    cout << difftime(end, start) << endl;
 
 
     return "VAlue Merge";
+    //Return string
 }
 
 int main() {
-
-
-    vector<Patient*> Patients = {};
-    extractBMIsFromFile(Patients);
-
-
-
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({800, 500}), "SFML window", sf::Style::Titlebar | sf::Style::Close);
     //Set main banner
