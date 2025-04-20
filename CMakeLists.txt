@@ -10,4 +10,12 @@ add_executable(Project3_HeartAttckPrediction
         MergeSort.cpp
         MergeSort.h
         RadixSort.cpp
-        RadixSort.h)
+        RadixSort.h
+)
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR C:/SFML/SFML-2.5.1/lib/cmake/SFML)
+find_package(SFML COMPONENTS graphics system window REQUIRED)
+
+include_directories(C:/SFML/SFML-2.5.1/include)
+include_directories(./resources/images)
+target_link_libraries(Project3_HeartAttckPrediction sfml-window sfml-system sfml-graphics)
