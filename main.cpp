@@ -7,6 +7,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "MergeSort.h"
+#include "RadixSort.h"
+
 
 using namespace std;
 

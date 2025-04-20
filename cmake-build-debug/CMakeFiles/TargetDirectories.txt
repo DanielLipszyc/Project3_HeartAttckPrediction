@@ -1,3 +1,0 @@
-C:/Git/Project3_HeartAttckPrediction/cmake-build-debug/CMakeFiles/Project3_HeartAttckPrediction.dir
-C:/Git/Project3_HeartAttckPrediction/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Git/Project3_HeartAttckPrediction/cmake-build-debug/CMakeFiles/rebuild_cache.dir
