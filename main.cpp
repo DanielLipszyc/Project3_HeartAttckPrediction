@@ -75,7 +75,7 @@ string MergeSort(int value) {
     int num = 1;
 
     vector<Patient*> Patients = {};
-    //extractBMIsFromFile(Patients);
+    extractBMIsFromFile(Patients);
     time_t start, end;
     time(&start);
 
@@ -104,6 +104,11 @@ string MergeSort(int value) {
 }
 
 int main() {
+
+
+    vector<Patient*> Patients = {};
+    extractBMIsFromFile(Patients);
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({800, 500}), "SFML window", sf::Style::Titlebar | sf::Style::Close);
     //Set main banner
